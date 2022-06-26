@@ -1,0 +1,12 @@
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\bin\Debug\net5.0\IServers.deps.json
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\bin\Debug\net5.0\IServers.dll
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\bin\Debug\net5.0\IServers.pdb
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\obj\Debug\net5.0\IServers.csproj.AssemblyReference.cache
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\obj\Debug\net5.0\IServers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\obj\Debug\net5.0\IServers.AssemblyInfoInputs.cache
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\obj\Debug\net5.0\IServers.AssemblyInfo.cs
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\obj\Debug\net5.0\IServers.csproj.CoreCompileInputs.cache
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\obj\Debug\net5.0\IServers.dll
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\obj\Debug\net5.0\refint\IServers.dll
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\obj\Debug\net5.0\IServers.pdb
+C:\Users\23328\Desktop\Rbac\RbacAPI\IServers\obj\Debug\net5.0\ref\IServers.dll
