@@ -41,6 +41,5 @@ namespace Application
         {
             return repository.UpdInfo(mapper.Map<TEntity>(dto));
         }
-
     }
 }

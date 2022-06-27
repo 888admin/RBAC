@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dV5705qCaYB5gyJEzACaGtswJBUQIdSS4jZff8ORJYULwV9m2+jrLZN9XSKVwWg4/jyu1VLO8fnKmKMm35ZPJg==",
+  "dgSpecHash": "EozOVKDiNMPICZU/oIFpHgn62gLhbDf3bWPx3AwrBbJTvVjBJB1j1vbyPXNscTp42meO52n9RctHvOCT2qIkHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\86132.LAPTOP-FJQ7UETQ\\Desktop\\Rbac\\RbacAPI\\ClassLibraryEF\\ClassLibraryEF.csproj",
+  "projectFilePath": "C:\\Users\\86132.LAPTOP-FJQ7UETQ\\Desktop\\Rbac\\RBACAll\\RbacAPI\\ClassLibraryEF\\ClassLibraryEF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\86132.LAPTOP-FJQ7UETQ\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\86132.LAPTOP-FJQ7UETQ\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

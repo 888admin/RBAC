@@ -11,9 +11,6 @@ namespace ClassLibraryEF
     /// </summary>
     public class BaseInfo
     {
-        /// <summary>
-        /// 添加时间
-        /// </summary>
         public DateTime CreateTime { get; set; } 
         public int CreateId { get; set; } 
         public bool IsDelete { get; set; } 

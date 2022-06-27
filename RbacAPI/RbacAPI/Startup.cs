@@ -15,7 +15,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application;
 using Repository;
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Swashbuckle.AspNetCore.Filters;
+using System.Reflection;
 
 namespace RbacAPI
 {
@@ -31,15 +35,22 @@ namespace RbacAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddAutoMapper(typeof(Startup));
-            services.AddDbContext<MyDbContext>(option =>
+            services.AddControllers(options =>
             {
-                option.UseSqlServer(Configuration.GetConnectionString("sqlserver"));
+
             });
-            services.AddControllers();
-            //配置上下文
+
+            services.AddAutoMapper(Assembly.Load("Application"));
+            //注册
+            services.AddScoped<IMenuRepository, MenuRepository>();
+            services.AddScoped<IMenuService, MenuService>();
+            services.AddScoped<IRolerepository, Rolerepository>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IAdminRepository, AdminRepository>();
+            services.AddScoped<IAdminService, AdminService>();
+
            
+
             services.AddCors(options =>
             {
                 options.AddPolicy("cors", policy =>
@@ -47,20 +58,65 @@ namespace RbacAPI
                     policy.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
                 });
             });
-            //注册
-            services.AddScoped<IMenuRepository,MenuRepository>();
-            services.AddScoped<IMenuService, MenuService>();
-            services.AddScoped<IRolerepository, Rolerepository>();
-            services.AddScoped<IRoleService, RoleService>();
-            services.AddScoped<IAdminRepository, AdminRepository>();
-            services.AddScoped<IAdminService, AdminService>();
 
-            services.AddSwaggerGen(c =>
+            //配置上下文
+            services.AddDbContext<MyDbContext>(option =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RbacAPI", Version = "v1" });
+                option.UseSqlServer(Configuration.GetConnectionString("sqlserver"));
             });
-        }
+           
+           
+            services.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(
+            option =>
+            {
+                //Token验证参数
+                option.TokenValidationParameters = new TokenValidationParameters
+                {
+                    //是否验证发行人
+                    ValidateIssuer = true,
+                    ValidIssuer = Configuration["JwtConfig:Issuer"],//发行人
 
+                    //是否验证受众人
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["JwtConfig:Audience"],//受众人
+
+                    //是否验证密钥
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtConfig:key"])),
+
+                    ValidateLifetime = true, //验证生命周期
+
+                    RequireExpirationTime = true, //过期时间
+
+                    ClockSkew = TimeSpan.Zero   //平滑过期偏移时间
+                };
+            });
+               
+
+                    services.AddSwaggerGen(c =>
+                    {
+                        c.SwaggerDoc("v1", new OpenApiInfo { Title = "RbacAPI", Version = "v1" });
+
+                        //开启权限小锁
+                        c.OperationFilter<AddResponseHeadersFilter>();
+                        c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
+                        c.OperationFilter<SecurityRequirementsOperationFilter>();
+
+                        //在header中添加token，传递到后台
+                        c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                        {
+                            Description = "JWT授权(数据将在请求头中进行传递)直接在下面框中输入Bearer {token}(注意两者之间是一个空格) \"",
+                            Name = "Authorization",//jwt默认的参数名称
+                            In = ParameterLocation.Header,//jwt默认存放Authorization信息的位置(请求头中)
+                            Type = SecuritySchemeType.ApiKey
+                        });
+                    });
+                }
+            
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -75,7 +131,9 @@ namespace RbacAPI
 
             app.UseRouting();
             app.UseCors("cors");
+            app.UseAuthentication();
             app.UseAuthorization();
+           
             
             app.UseEndpoints(endpoints =>
             {

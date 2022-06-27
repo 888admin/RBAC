@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace Application
 {
-    /// <summary>
-    /// 继承
-    /// </summary>
     public class TokenDto : ResultDto
     {
         /// <summary>

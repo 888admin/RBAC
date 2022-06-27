@@ -5,11 +5,13 @@ using Repository;
 using System.Collections.Generic;
 using Fare;
 using ClassLibraryEF;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RbacAPI.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class MenuController : ControllerBase
     {
         private readonly IMenuService menuService;

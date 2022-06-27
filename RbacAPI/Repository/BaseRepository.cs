@@ -13,13 +13,13 @@ namespace Repository
 
         protected MyDbContext myDbContext;
 
-        public int AddInfo(TEntity t)
+        public virtual int AddInfo(TEntity t)
         {
             myDbContext.Set<TEntity>().Add(t);
             return myDbContext.SaveChanges();
         }
 
-        public int AddAll(List<TEntity> t)
+        public virtual int AddAll(List<TEntity> t)
         {
             foreach (var item in t)
             {
