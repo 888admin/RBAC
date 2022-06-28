@@ -36,7 +36,7 @@ namespace ClassLibraryEF
                 t.Property(t => t.UserName).HasMaxLength(50).IsRequired();
                 t.Property(t => t.Password).HasMaxLength(50).IsRequired();
                 t.Property(t => t.Email).HasMaxLength(50).IsRequired();
-                t.Property(t => t.LastLoginIP).HasMaxLength(50).IsRequired();
+                t.Property(t => t.LastLoginIP).HasMaxLength(50);
             });
             modelBuilder.Entity<Menu>(t =>
             {

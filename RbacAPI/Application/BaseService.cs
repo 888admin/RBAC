@@ -19,11 +19,11 @@ namespace Application
             this.mapper = mapper;
         }
 
-        public int Create(TDto dto)
+        public virtual int Create(TDto dto)
         {
             return repository.AddInfo(mapper.Map<TEntity>(dto));
         }
-        public List<TEntity> Query()
+        public virtual List<TEntity> Query()
         {
             return repository.QueryAll();
         }

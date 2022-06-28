@@ -16,12 +16,17 @@ const routes = [
     component: () => import('../views/MenuCreate.vue')
   },
   {
-    path: '/',
+    path: '/Menulist',
     name: 'Menulist',
     component: () => import('../views/Menulist.vue')
   },
   {
-    path: '/Login',
+    path: '/Menu',
+    name: 'Menulist',
+    component: () => import('../views/Menu.vue')
+  },
+  {
+    path: '/',
     name: 'Login',
     component: () => import('../views/Login.vue')
   },

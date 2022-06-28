@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class BaseRepository<TEntity, Key> : IBaseRepository<TEntity, Key> where TEntity : class where Key : struct
+    public class BaseRepository<TEntity, TKey> : IBaseRepository<TEntity, TKey> where TEntity : class where TKey : struct
     {
 
         protected MyDbContext myDbContext;
@@ -34,13 +34,13 @@ namespace Repository
             return myDbContext.SaveChanges();
         }
 
-        public TEntity GetBity(Key key)
+        public TEntity GetBity(TKey key)
         {
             var list = myDbContext.Set<TEntity>().Find(key);
             return list;
         }
 
-        public int Delete(Key id)
+        public int Delete(TKey id)
         {
             var list = myDbContext.Set<TEntity>().Find(id);
             myDbContext.Remove(list);

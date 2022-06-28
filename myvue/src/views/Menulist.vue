@@ -58,7 +58,7 @@ export default {
       }).then(() => {
         this.$http.get("/api/Menu/DelMenu?id=" + id).then(res => {
           if (res.data == 500) {
-            this.$message.error("有儿子了，不能删除");
+            this.$message.error("不能删除");
           }
           else if (res.data > 0) {
             this.$message({
