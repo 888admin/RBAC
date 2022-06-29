@@ -12,10 +12,17 @@ namespace Application
     {
         private readonly IBaseRepository<TEntity, int> repository;
         private readonly IMapper mapper;
+        private IAdminRepository adminRepository;
 
         public BaseService(IBaseRepository<TEntity, int> repository, IMapper mapper)
         {
             this.repository = repository;
+            this.mapper = mapper;
+        }
+
+        public BaseService(IAdminRepository adminRepository, IMapper mapper)
+        {
+            this.adminRepository = adminRepository;
             this.mapper = mapper;
         }
 

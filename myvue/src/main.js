@@ -10,7 +10,9 @@ const service=axios.create({
   baseURL:"https://localhost:44348",
 })
 
+
 Vue.prototype.$http=service;
+service.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('token')}`;
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 

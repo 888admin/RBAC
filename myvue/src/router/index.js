@@ -5,31 +5,23 @@ import HomeView from '../views/HomeView.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/MenuUpd',
-    name: 'MenuUpd',
-    component: () => import('../views/MenuUpd.vue')
-  },
-  {
-    path: '/MenuCreate',
-    name: 'MenuCreate',
-    component: () => import('../views/MenuCreate.vue')
-  },
-  {
-    path: '/Menulist',
-    name: 'Menulist',
-    component: () => import('../views/Menulist.vue')
-  },
-  {
-    path: '/Menu',
-    name: 'Menulist',
-    component: () => import('../views/Menu.vue')
-  },
-  {
+    {
     path: '/',
     name: 'Login',
     component: () => import('../views/Login.vue')
   },
+  {
+    path: '/Menu',
+    name: 'Menulist',
+    component: () => import('../views/Menu.vue'),
+    children:
+    [
+        {path: '/MenuCreate',name: 'MenuCreate',component: () => import('../views/MenuCreate.vue')},
+        {path: '/Menulist',name: 'Menulist',component: () => import('../views/Menulist.vue')},
+        {path: '/MenuUpd',name: 'MenuUpd',component: () => import('../views/MenuUpd.vue')},
+    ]
+  },
+  
   {
     path: '/HomeView',
     name: 'home',

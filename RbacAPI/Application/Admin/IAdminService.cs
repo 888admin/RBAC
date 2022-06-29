@@ -12,5 +12,6 @@ namespace Application
     {
         ResultDto Register(AdminDto dto);
         TokenDto Login(LoginDto dto);
+        List<Admin> AdminShow();
     }
 }

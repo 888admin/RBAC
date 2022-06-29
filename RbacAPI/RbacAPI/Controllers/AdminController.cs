@@ -26,6 +26,12 @@ namespace RbacAPI.Controllers
         public IActionResult Login(LoginDto dto)
         {
             return Ok(m.Login(dto));
+        
+        }
+        [HttpGet]
+        public IActionResult AdminShow()
+        {
+            return Ok(m.AdminShow());
         }
     }
 }

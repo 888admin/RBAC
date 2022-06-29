@@ -28,6 +28,13 @@ namespace Application
             this.configuration = configuration;
         }
 
+        public List<Admin> AdminShow()
+        {
+            var list= AdminRepository.QueryAll().ToList();
+            
+            return list;
+        }
+
         public TokenDto Login(LoginDto dto)
         {
             var list = AdminRepository.GetEntity(m => m.UserName == dto.UserName.Trim());
@@ -82,7 +89,11 @@ namespace Application
             return new ResultDto { Code = 0, Msg = "注册成功" };
         }
 
-      
+
+        List<Admin> IAdminService.AdminShow()
+        {
+            throw new NotImplementedException();
+        }
 
         private string Md5(string val)
         {
