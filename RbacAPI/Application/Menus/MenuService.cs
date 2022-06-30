@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using Repository;
 using ClassLibraryEF;
 using System.Linq;
+using AutoMapper;
 
 namespace Application
 {
     public class MenuService : IMenuService
     {
         private readonly IMenuRepository menuRepository;
+        private readonly IMapper mapper;
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="menuRepository"></param>
 
-        public MenuService(IMenuRepository menuRepository)
+        public MenuService(IMenuRepository menuRepository,IMapper mapper)
         {
             this.menuRepository = menuRepository;
+            this.mapper = mapper;
         }
         public List<MenuDto> QueryAll()
         {
@@ -121,11 +125,8 @@ namespace Application
         {
             return menuRepository.GetBity(id);
         }
-        /// <summary>
-        /// 修改
-        /// </summary>
-        /// <param name="menu"></param>
-        /// <returns></returns>
+
+
         public int MenuUpd(MenuAddDto menu)
         {
             return menuRepository.UpdInfo(new Menu
@@ -137,6 +138,12 @@ namespace Application
                 CreateId = 0,
                 CreateTime = DateTime.Now,
             });
+        }
+
+        public List<MenuDto> Show()
+        {
+            var list = mapper.Map<List<MenuDto>>(menuRepository.QueryAll());
+            return list;
         }
     }
 }

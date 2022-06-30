@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Application;
-using Repository;
-using System.Collections.Generic;
-using Fare;
+﻿using Application;
 using ClassLibraryEF;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace RbacAPI.Controllers
 {
@@ -56,6 +53,12 @@ namespace RbacAPI.Controllers
         public int MenuUpd(MenuAddDto menu)
         {
             return menuService.MenuUpd(menu);
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public List<MenuDto> Show()
+        { 
+            return menuService.Show();
         }
     }
 }

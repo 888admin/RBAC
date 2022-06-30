@@ -67,6 +67,7 @@ export default {
               type: 'success',
               message: '删除成功!'
             });
+            this.$router.push('/Menulist')
           }
           else {
             this.$message.error("删除失败");

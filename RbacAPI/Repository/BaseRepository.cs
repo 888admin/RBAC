@@ -61,9 +61,13 @@ namespace Repository
             return list;
         }
 
-        public IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> predicate=null)
         {
-            var list = myDbContext.Set<TEntity>();
+            var list = myDbContext.Set<TEntity>().AsQueryable();
+            if (predicate != null)
+            { 
+                list=list.Where(predicate);
+            }
             return list;
         }
 

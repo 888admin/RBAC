@@ -18,11 +18,11 @@
 <script>
 import { Breadcrumb, FormItem } from 'element-ui';
 export default {
-  props: ['menuId'],
+  props: ['MenuId'],
   data () {
     return {
       form: {
-        MenuId: this.MenuId,
+        MenuId: this.GetMeId,
         PId: null,
         MenuName: '',
         MenuLink: '',
@@ -33,9 +33,7 @@ export default {
   },
   methods: {
     onSubmit () {
-      this.form.PId = this.$refs["GetMeId"].checkedValue[this.$refs["GetMeId"].checkedValue.length - 1];
-      this.form.PId = this.value.slice(-1)[0];
-      console.log(this.form);
+      this.form.MenuId = this.$refs["GetMeId"].checkedValue[this.$refs["GetMeId"].checkedValue.length - 1];
       this.$http.post("/api/Menu/AddMenu", this.form).then(res => {
         if (res.data > 0) {
           this.$message.success("修改成功");

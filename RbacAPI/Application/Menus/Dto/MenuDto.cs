@@ -13,6 +13,7 @@ namespace Application
         public string MenuName { get; set; }
 
         public string MenuLink { get; set; }
+
         public List<MenuDto> children { get; set; } = new List<MenuDto>();
     }
 }

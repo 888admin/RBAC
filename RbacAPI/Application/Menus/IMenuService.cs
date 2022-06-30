@@ -11,6 +11,7 @@ namespace Application
         int AddMenu(MenuAddDto menu);
 
         Menu GetBity(int id);
+        List<MenuDto> Show();
 
         int MenuUpd(MenuAddDto menu);
 

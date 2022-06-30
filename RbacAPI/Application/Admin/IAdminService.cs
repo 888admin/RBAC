@@ -12,6 +12,6 @@ namespace Application
     {
         ResultDto Register(AdminDto dto);
         TokenDto Login(LoginDto dto);
-        List<Admin> AdminShow();
+        Tuple<List<AdminDto>, int> AdminShow(int Pageindex=1,int PageSize=2);
     }
 }

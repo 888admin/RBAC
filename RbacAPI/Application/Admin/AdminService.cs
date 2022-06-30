@@ -28,13 +28,6 @@ namespace Application
             this.configuration = configuration;
         }
 
-        public List<Admin> AdminShow()
-        {
-            var list= AdminRepository.QueryAll().ToList();
-            
-            return list;
-        }
-
         public TokenDto Login(LoginDto dto)
         {
             var list = AdminRepository.GetEntity(m => m.UserName == dto.UserName.Trim());
@@ -89,10 +82,11 @@ namespace Application
             return new ResultDto { Code = 0, Msg = "注册成功" };
         }
 
-
-        List<Admin> IAdminService.AdminShow()
+        public Tuple<List<AdminDto>, int> AdminShow(int Pageindex = 1, int PageSize = 2)
         {
-            throw new NotImplementedException();
+            var list =mapper.Map<List<AdminDto>>(AdminRepository.GetQuery().OrderBy(t=>t.AdminId).Skip((Pageindex - 1) * PageSize).Take(PageSize)).ToList();
+            var Totalcount = AdminRepository.GetQuery().Count();
+            return new Tuple<List<AdminDto>, int>(list, Totalcount);
         }
 
         private string Md5(string val)

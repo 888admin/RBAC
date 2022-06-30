@@ -14,7 +14,7 @@ namespace Repository
         TEntity GetBity(TKey key);
         TEntity GetEntity(Expression<Func<TEntity, bool>> predicate);
         List<TEntity> GetList(Expression<Func<TEntity, bool>> predicate);
-        IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> predicate);
+        IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> predicate=null);
         List<TEntity> QueryAll();
         int UpdInfo(TEntity t);
     }
