@@ -3,7 +3,6 @@
     <el-form style="width: 0%;margin-bottom: 2px;">
       <el-button @click="add">添加</el-button>
     </el-form>
-
     <el-table :data="tableData" style="width: 100%;margin-bottom: 20px;" row-key="MenuId" border default-expand-all :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
       <el-table-column prop="MenuId" label="菜单Id" sortable width="180">
       </el-table-column>

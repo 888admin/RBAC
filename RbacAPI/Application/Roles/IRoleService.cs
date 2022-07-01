@@ -1,4 +1,5 @@
-﻿using ClassLibraryEF;
+﻿using Application.Roles.Dto;
+using ClassLibraryEF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Application
 {
     public interface IRoleService:IBaseService<Role, RoleCreateDto>
     {
-
+        int SavePermission(PermissionDto permission);
     }
 }

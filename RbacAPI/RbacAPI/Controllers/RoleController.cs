@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Application;
 using ClassLibraryEF;
+using Application.Roles.Dto;
 
 namespace RbacAPI.Controllers
 {
@@ -40,7 +41,12 @@ namespace RbacAPI.Controllers
         {
             return roleService.Update(dto);
         }
-
+        [HttpPost]
+        public IActionResult SavePermission(PermissionDto permission)
+        {
+            roleService.SavePermission(permission);
+            return Ok();
+        }
 
     }
 }

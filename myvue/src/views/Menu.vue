@@ -4,17 +4,17 @@
       <el-header>权限管理系统</el-header>
       <el-container>
         <el-aside width="200px">
-          <el-menu default-active="2" :router="true" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-            <el-submenu index="1" v-for="(item, index) in lists" :key="list.MenuId">
+          <el-menu default-active="/Menulist" :router="true" class="el-menu-vertical-demo" :unique-opened="false" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+            <el-submenu :index="String(item.MenuId)" v-for="(item, index) in lists" :key="item.MenuId">
               <template slot="title">
                 <i class="el-icon-location"></i>
-                <span>导航一</span>
+                <span>{{item.MenuName}}</span>
               </template>
-              <el-menu-item-group>
-                <template slot="title">分组一</template>
-                <el-menu-item index="/Menulist">选项1</el-menu-item>
-                <el-menu-item index="/Adminshow">选项2</el-menu-item>
-              </el-menu-item-group>
+              <template v-for="(submenu, i) in list.filter(m => m.PId == item.MenuId)">
+                <el-menu-item :index="items.MenuLink" v-for="(items, subIndex) in list.filter(m =>m.PId == submenu.MenuId)" :key="items.MenuId">
+                  <span>{{items.MenuName}}</span>
+                </el-menu-item>
+              </template>
             </el-submenu>
           </el-menu>
         </el-aside>
@@ -33,11 +33,6 @@ export default {
       list: []
     }
   },
-  computed: {
-    lists () {
-      return this.list.filter(t => t.PId == 0)
-    }
-  },
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath);
@@ -48,13 +43,19 @@ export default {
     show () {
       this.$http.get('/api/Menu/Show').then(res => {
         this.list = res.data
-        console.log(this.list)
       })
     },
   },
   created: function () {
     this.show()
-  }
+  },
+  computed: {
+    lists () {
+      return this.list.filter((v, i, arr) => {
+        return v.PId == 0
+      })
+    }
+  },
 
 }
 </script>

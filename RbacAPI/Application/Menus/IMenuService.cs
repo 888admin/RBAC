@@ -1,4 +1,5 @@
-﻿using ClassLibraryEF;
+﻿using Application.Menus.Dto;
+using ClassLibraryEF;
 using System.Collections.Generic;
 
 namespace Application
@@ -11,7 +12,7 @@ namespace Application
         int AddMenu(MenuAddDto menu);
 
         Menu GetBity(int id);
-        List<MenuDto> Show();
+        List<MenuShowDto> Show();
 
         int MenuUpd(MenuAddDto menu);
 

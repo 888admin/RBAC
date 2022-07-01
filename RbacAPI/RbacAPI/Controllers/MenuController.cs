@@ -1,4 +1,5 @@
 ﻿using Application;
+using Application.Menus.Dto;
 using ClassLibraryEF;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -56,7 +57,7 @@ namespace RbacAPI.Controllers
         }
         [HttpGet]
         [AllowAnonymous]
-        public List<MenuDto> Show()
+        public List<MenuShowDto> Show()
         { 
             return menuService.Show();
         }

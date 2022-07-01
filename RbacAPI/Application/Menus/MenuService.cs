@@ -4,6 +4,7 @@ using Repository;
 using ClassLibraryEF;
 using System.Linq;
 using AutoMapper;
+using Application.Menus.Dto;
 
 namespace Application
 {
@@ -140,9 +141,9 @@ namespace Application
             });
         }
 
-        public List<MenuDto> Show()
+        public List<MenuShowDto> Show()
         {
-            var list = mapper.Map<List<MenuDto>>(menuRepository.QueryAll());
+            var list = mapper.Map<List<MenuShowDto>>(menuRepository.QueryAll());
             return list;
         }
     }

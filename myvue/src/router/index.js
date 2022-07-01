@@ -20,6 +20,8 @@ const routes = [
         {path: '/Menulist',name: 'Menulist',component: () => import('../views/Menulist.vue')},
         {path: '/MenuUpd',name: 'MenuUpd',component: () => import('../views/MenuUpd.vue')},
         {path: '/Adminshow',name: 'Admin',component: () => import('../views/Adminshow.vue')},
+        {path: '/role',name: 'role',component: () => import('../views/role.vue')},
+        
     ]
   },
   

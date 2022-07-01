@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Menus.Dto;
 using AutoMapper;
 using ClassLibraryEF;
 
@@ -16,6 +17,7 @@ namespace Application
             CreateMap<RoleCreateDto, Role>().ReverseMap();
             CreateMap<AdminDto, Admin>().ReverseMap();
             CreateMap<MenuDto, Menu  >().ReverseMap();
+            CreateMap<MenuShowDto, Menu>().ReverseMap();
         }
     }
 }
