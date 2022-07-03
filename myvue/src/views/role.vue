@@ -41,17 +41,17 @@ export default {
   },
   methods: {
     handleEdit (index, row) {
-      console.log(index, row);
+      console.log(index, row)
     },
     handleDelete (index, row) {
-      console.log(index, row);
+      console.log(index, row)
     },
     formatter (row, column, cellValue, index) {
-      return row.isLock ? "是" : "否";
+      return row.isLock ? "是" : "否"
     },
     assignPerm (RoleId) {
-      this.RoleId = RoleId;
-      this.dialogVisible = true;
+      this.RoleId = RoleId
+      this.dialogVisible = true
     },
     SavePermission () {
       var checkedId = this.$refs.dialogTree.$refs.menuTree.getCheckedNodes(true, true).map(m => m.value);
@@ -59,11 +59,11 @@ export default {
       this.$http.post('/api/Role/SavePermission', { MenuId: checkedId, RoleId: RoleId }).then(m => {
 
       });
-      this.dialogVisible = false;
+      this.dialogVisible = false
     },
     show () {
       this.$http.get('api/Role/GetBity').then(m => {
-        this.tableData = m.data;
+        this.tableData = m.data
       });
     }
   },

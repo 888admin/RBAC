@@ -16,11 +16,13 @@ namespace RbacAPI.Controllers
             this.m = m;
         }
 
+
         [HttpPost]
         public IActionResult Register(AdminDto dto)
         {
             return Ok(m.Register(dto));
         }
+
 
         [HttpPost]
         public IActionResult Login(LoginDto dto)
@@ -28,6 +30,8 @@ namespace RbacAPI.Controllers
             return Ok(m.Login(dto));
         
         }
+
+
         [HttpGet]
         public IActionResult AdminShow(int Pageindex = 1,int Pagesize=2)
         {
