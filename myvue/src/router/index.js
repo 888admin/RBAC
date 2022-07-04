@@ -21,8 +21,12 @@ const routes = [
         {path: '/MenuUpd',name: 'MenuUpd',component: () => import('../views/MenuUpd.vue')},
         {path: '/Adminshow',name: 'Admin',component: () => import('../views/Adminshow.vue')},
         {path: '/role',name: 'role',component: () => import('../views/role.vue')},
-        
     ]
+  },
+  {
+    path: '/roleTree',
+    name: 'roleTree',
+     component: () => import('../views/roleTree.vue')
   },
   
   {

@@ -11,5 +11,6 @@ namespace Application
     public interface IRoleService:IBaseService<Role, RoleCreateDto>
     {
         int SavePermission(PermissionDto permission);
+        List<RoleCreateDto> RoleShow();
     }
 }

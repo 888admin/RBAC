@@ -22,6 +22,7 @@ using Swashbuckle.AspNetCore.Filters;
 using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Repository.MenuRole;
 
 namespace RbacAPI
 {
@@ -57,7 +58,9 @@ namespace RbacAPI
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IAdminRepository, AdminRepository>();
             services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped<IMenuRoleRepository, MenuRoleRepository>();
 
+            //services.AddScoped<IMenuRoleRepository>();
            
 
             services.AddCors(options =>

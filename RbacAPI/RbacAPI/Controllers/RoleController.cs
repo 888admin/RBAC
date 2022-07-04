@@ -18,34 +18,16 @@ namespace RbacAPI.Controllers
         }
 
         [HttpPost]
-        public int Create(RoleCreateDto dto)
-        {
-            return roleService.Create(dto);
-        }
-
-
-        [HttpGet]
-        public int Delete(int id)
-        {
-            return roleService.Delete(id);
-        }
-
-        [HttpGet]
-        public RoleCreateDto GetBity(int id)
-        {
-            return roleService.Find(id);
-        }
-
-        [HttpPost]
-        public int Update(RoleCreateDto dto)
-        {
-            return roleService.Update(dto);
-        }
-        [HttpPost]
         public IActionResult SavePermission(PermissionDto permission)
         {
             roleService.SavePermission(permission);
             return Ok();
+        }
+        [HttpGet]
+        public IActionResult RoleShow()
+        {
+            var list= roleService.RoleShow();
+            return new JsonResult(list);
         }
 
     }
