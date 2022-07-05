@@ -26,6 +26,12 @@ namespace Application
             this.mapper = mapper;
         }
 
+        public List<MenuRoleDto> GetRoleId(int RoleId)
+        {
+            var list = mapper.Map<List<MenuRoleDto>>(menuRoleRepository.GetQuery().Where(t => t.RoleId == RoleId)).ToList();
+            return list;
+        }
+
         public List<RoleCreateDto> RoleShow()
         {
             var list = mapper.Map<List<RoleCreateDto>>(repository.QueryAll());

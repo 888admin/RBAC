@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Menus.Dto;
+using Application.Roles.Dto;
 using AutoMapper;
 using ClassLibraryEF;
 
@@ -18,6 +19,7 @@ namespace Application
             CreateMap<AdminDto, Admin>().ReverseMap();
             CreateMap<MenuDto, Menu  >().ReverseMap();
             CreateMap<MenuShowDto, Menu>().ReverseMap();
+            CreateMap<MenuRoleDto, RoleMenu>().ReverseMap();
         }
     }
 }

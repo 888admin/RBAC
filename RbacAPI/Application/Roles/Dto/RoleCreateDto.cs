@@ -9,8 +9,6 @@ namespace Application
     public class RoleCreateDto
     {
         public int RoleId { get; set; }
-
-
         public string RoleName { get; set; }
 
         public DateTime CreateTime { get; set; }

@@ -13,7 +13,8 @@ export default {
       defaultProps: {
         children: 'children',
         label: 'label'
-      }
+      },
+      chkId: []
     };
   },
   props: {
@@ -27,10 +28,10 @@ export default {
     }
   },
   created: function () {
-    this.$http.get("/api/Menu/Show").then(res => {
+    this.$http.get("/api/Menu/QueryCreateMeun").then(res => {
       var reg = new RegExp('\\,"children":\\[]', 'g')
       this.data = JSON.parse(JSON.stringify(res.data).replace(reg, ''));
-    });  
+    });
   },
 
 }

@@ -12,5 +12,6 @@ namespace Application
     {
         int SavePermission(PermissionDto permission);
         List<RoleCreateDto> RoleShow();
+        List<MenuRoleDto> GetRoleId(int RoleId);
     }
 }

@@ -16,13 +16,7 @@ namespace ClassLibraryEF
     {
         [Key]
         public int Id { get; set; }
-        /// <summary>
-        /// 菜单表
-        /// </summary>
         public int MenuId { get; set; }
-        /// <summary>
-        /// 角色表
-        /// </summary>
         public int RoleId { get; set; }
     }
 }

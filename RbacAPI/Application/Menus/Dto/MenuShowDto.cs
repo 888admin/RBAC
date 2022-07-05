@@ -11,7 +11,6 @@ namespace Application.Menus.Dto
         public int MenuId { get; set; }
 
         public string MenuName { get; set; }
-
         public string MenuLink { get; set; }
         public int PId  { get; set; }
         public virtual bool IsShow { get; set; }

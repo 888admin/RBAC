@@ -29,6 +29,12 @@ namespace RbacAPI.Controllers
             var list= roleService.RoleShow();
             return new JsonResult(list);
         }
-
+        [HttpGet]
+        public IActionResult GetRoleId(int RoleId)
+        {
+            var list = roleService.GetRoleId(RoleId);
+            return new JsonResult(list);
+        }
+            
     }
 }
