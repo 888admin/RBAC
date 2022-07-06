@@ -12,6 +12,7 @@ namespace Repository
         int AddInfo(TEntity t);
 
         int Deletelame(Expression<Func<TEntity, bool>> predicate);
+        int Delete(Expression<Func<TEntity, bool>> predicate);
 
         int Delete(TKey id);
 

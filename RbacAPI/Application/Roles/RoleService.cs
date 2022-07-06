@@ -40,6 +40,7 @@ namespace Application
 
         public int SavePermission(PermissionDto permission)
         {
+            menuRoleRepository.Delete(m => m.RoleId == permission.RoleId);
             var ids = permission.MenuId.Select(m => new RoleMenu { MenuId = m, RoleId = permission.RoleId }).ToList();
 
             return menuRoleRepository.AddAll(ids);

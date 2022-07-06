@@ -80,5 +80,12 @@ namespace Repository
         {
             return myDbContext.Set<TEntity>().Where(predicate).FirstOrDefault();
         }
+
+        public int Delete(Expression<Func<TEntity, bool>> predicate)
+        {
+            var list = myDbContext.Set<TEntity>().Where(predicate).ToList();
+            myDbContext.RemoveRange(list);
+            return myDbContext.SaveChanges();
+        }
     }
 }

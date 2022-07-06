@@ -10,9 +10,5 @@ namespace Application
     {
         public int RoleId { get; set; }
         public string RoleName { get; set; }
-
-        public DateTime CreateTime { get; set; }
-
-        public bool IsDelete { get; set; }
     }
 }
