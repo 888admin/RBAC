@@ -63,13 +63,13 @@ export default {
             }
           })
         } else {
-          console.log('error submit!!');
+          console.log('error submit!!')
           return false;
         }
       });
     },
     resetForm (formName) {
-      this.$refs[formName].resetFields();
+      this.$refs[formName].resetFields()
     },
     reg () {
 

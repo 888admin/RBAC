@@ -35,6 +35,7 @@ namespace RbacAPI.Controllers
         [HttpGet]
         public IActionResult AdminShow(int Pageindex = 1,int Pagesize=2)
         {
+
             return new JsonResult(m.AdminShow(Pageindex, Pagesize));
         }
     }
